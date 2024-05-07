@@ -9,7 +9,13 @@ func main() {
 	for {
 		fmt.Println("Please choose 'paper', 'stone' or 'scissors':")
 		var playerChoice string
-		fmt.Scanln(&playerChoice)
+		for {
+			fmt.Scanln(&playerChoice)
+			if playerChoice == "paper" || playerChoice == "stone" || playerChoice == "scissors" {
+				break // valid input
+			}
+			fmt.Println("INVALID CHOICE. Please choose 'paper', 'stone' or 'scissors':")
+		}
 
 		computerChoice := getComputerChoice()
 
