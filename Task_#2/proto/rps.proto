@@ -1,0 +1,21 @@
+syntax = "proto3"
+
+package proto
+
+// The RPS game service definition.
+service RockPaperScissors  {
+    // Sends a move to the server and gets the opponent's move.
+    rpc PlayGame (PlayerMove) returns (GameResult) {}
+}
+
+// The request message containing the player's move.
+message PlayerMove {
+    string move = 1; // The move (choice) could be "rock", "paper" & "scissors".
+}
+
+// The respose message containing the result of the game.
+message GameResult {
+    string playerMove = 1;
+    string oppponentMove = 2;
+    string result = 3;  // the result could be "win", "lose" or "tie"
+}
